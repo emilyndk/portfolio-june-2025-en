@@ -1,0 +1,139 @@
+---
+import Link from "./Link.astro";
+import Button from "./Button.astro";
+---
+
+<footer id="footer" class="">
+  <div id="footer-mobil" class="py-spacebar-mm lg:hidden flex flex-col h-full gap-[76px] justify-center">
+    
+<div class="flex flex-col items-center gap-[40px] ">
+    <div class="flex flex-col items-center gap-[8px] ">
+      <a href="https://www.linkedin.com/in/emily-fang-xiong-nielsen-456326327/"
+        ><img src="/svg/linkedin.svg" alt="LinkedIn ikon" /></a
+      >
+      <Link
+        variant="secondary"
+        size="regular"
+        href="https://www.linkedin.com/in/emily-fang-xiong-nielsen-456326327/"
+        input="Emily Fang Xiong Nielsen"
+      />
+    </div>
+
+    
+
+
+    <div class="flex flex-col items-center gap-[8px] ">
+      <a href="tel:+4542416188">
+        <img src="/svg/tlf.svg" alt="Tlf ikon" /></a
+      >
+      <Link
+        variant="secondary"
+        size="regular"
+        href="tel:+4542416188"
+        input="+45 42416188"
+      />
+    </div>
+    <div class="flex flex-col items-center gap-[8px] ">
+      <a href="mailto:emily.nielsen00@gmail.com"
+        ><img src="/svg/mail.svg" class="max-w-fit" alt="Mail ikon" /></a
+      >
+      <Link
+        variant="secondary"
+        size="regular"
+        href="mailto:emily.nielsen00@gmail.com"
+        input="@emily.nielsen09@gmail.com"
+      />
+    </div>
+
+ <div class="flex flex-col items-center gap-[8px] ">
+     
+        <img src="/svg/lokation.svg" class="max-w-fit" alt="Mail ikon" />
+      <p class="text-obsidian-500 font-body text-p-m">København, DK</p>
+    </div>
+
+    </div>
+
+
+
+    <div class="flex flex-col items-center gap-[18px] ">
+     
+     
+   
+
+        <a href="/#cv"
+     
+        ><Button variant="primary" input="Download CV" /></a
+      >
+
+        <a href="#hero" class="text-magic-500 opacity-65 font-body text-p-m">Back to top ↑</a>
+    </div>
+  </div>
+
+  <div
+    id="footer-desktop"
+    class="hidden lg:flex flex-col gap-[40px] justify-center h-[446px] "
+  >
+    <div class="grid grid-cols-grid-desktop gap-gap-desktop mx-margin-mobil">
+      
+
+      <div class="col-start-4 pb-spacebar-ds col-end-8 flex justify-start  flex-row items-center gap-[8px]">
+        <a
+          href="https://www.linkedin.com/in/emily-fang-xiong-nielsen-456326327/"
+          ><img src="/svg/linkedin.svg" alt="LinkedIn ikon" /></a
+        >
+        <Link
+          variant="secondary"
+          size="small"
+          href="https://www.linkedin.com/in/emily-fang-xiong-nielsen-456326327/"
+          input="Emily Fang Xiong Nielsen"
+        />
+      </div>
+      <div class="pb-spacebar-ds col-start-8 col-end-12 flex flex-row items-center gap-[8px]">
+        <a href="tel:+4542416188">
+          <img src="/svg/tlf.svg" alt="Tlf ikon" /></a
+        >
+        <Link
+          variant="secondary"
+          size="small"
+          href="tel:+4542416188"
+          input="+45 42416188"
+        />
+      </div>
+    
+  
+      <div class="col-start-4 col-end-8 flex flex-row items-center gap-[8px]">
+        <a href="mailto:emily.nielsen09@gmail.com"
+          ><img src="/svg/mail.svg" class="max-w-fit" alt="Mail ikon" /></a
+        >
+        <Link
+          variant="secondary"
+          size="small"
+          href="mailto:emily.nielsen00@gmail.com"
+          input="@emily.nielsen09@gmail.com"
+        />
+      </div>
+
+      <div class="col-start-8 col-end-12 flex flex-row items-center gap-[8px]">
+       
+          <img src="/svg/lokation.svg" class="max-w-fit" alt="Mail ikon" />
+        
+        <p class="text-obsidian-500 font-body text-p-s-d">København, DK</p>
+      </div>
+     
+    </div>
+
+   <div class="flex flex-row justify-center items-center gap-spacebar-ds ">
+     
+     
+   
+<a href="#hero" class="text-magic-500 font-body opacity-65 text-p-d">Back to top ↑</a>
+
+      <a href="/#cv"
+     
+        ><Button variant="primary" input="Download CV" /></a
+      >
+
+        
+    </div>
+  </div>
+</footer>

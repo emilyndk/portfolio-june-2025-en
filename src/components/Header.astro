@@ -1,0 +1,216 @@
+---
+import Link from "./Link.astro";
+const { links = [] } = Astro.props;
+---
+
+<section id="mobil-header" class="px-[16px] w-screen grid grid-cols-grid-mobil lg:hidden gap-gap-mobil pb-spacebar-mm pt-spacebar-ms">
+
+
+
+  
+    <button
+    id="burger-button"
+    class="pt-spacebar-ms  col-start-12 col-end-12 z-50 lg:hidden transition-opacity duration-200"
+  >
+    <div
+      id="streger"
+      class="open-icon transition-transform duration-300 w-full flex flex-col h-full items-center justify-center opacity-100 scale-100"
+    >
+      <img src="/svg/burger.svg" class="w-full" alt="Burger" />
+    </div>
+    <div
+      id="kryds"
+      class="close-icon transition-transform duration-300 w-full flex flex-col h-full items-center opacity-0 scale-75 "
+    >
+      <img class="w-full" src="/svg/line.svg" alt="Kryds" />
+    </div>
+  </button>
+
+
+
+</section>
+
+
+
+<div
+    id="mobile-menu"
+    class="bg-magic-500  top-0 fixed w-full h-full flex items-center justify-center opacity-0 transition-opacity duration-300 lg:hidden"
+  >
+    <nav>
+      <ul class="flex flex-col text-center gap-spacebar-ds">
+        <Link variant="primary"  input="Hjem" size="large" href="/#hero" />
+        <Link variant="primary" input="Om" size="large" href="/#om" />
+        <Link
+          variant="primary"
+          input="Projekter"
+          href="/projekter"
+        />
+         <Link
+          variant="primary"
+          input="Download CV"
+          href="/#CV"
+        />
+        <Link variant="primary" input="Kontakt" size="large" href="#footer" />
+      </ul>
+    </nav>
+  </div>
+
+
+
+
+
+
+
+
+
+<div id="desktop-header" class="hidden lg:block w-full">
+  <div class="hidden mx-margin-desktop  grid-cols-grid-desktop lg:grid gap-gap-desktop bg-sand-300 my-4 rounded-full px-4 py-2">
+<div class="col-start-1 col-span-12 flex flex-row  items-center justify-between "><div class=""> <a class="gap-spacebar-ms flex flex-row items-center" href="/"> <img src="/img/portrait-round.webp" alt="Emily Nielsen"> <p class="text-p-d text-obsidian-500 font-body">Emily Nielsen</p></a></div> 
+
+<div class="flex flex-row items-center justify-start gap-spacebar-ds ">
+ 
+    <Link input="Projekter" variant="secondary" size="regular" href="/projekter"></Link>
+     <Link input="Download CV" variant="secondary" size="regular" href="#cv"></Link>
+      <Link input="Om" variant="secondary" size="regular" href="#om"></Link>
+        <Link input="Kontakt" variant="secondary" size="regular" href="#footer"></Link>
+  
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+ <script>
+    // Get all the section links and sections
+    const navLinks = document.querySelectorAll("[data-navlink]");
+    const sections = document.querySelectorAll("section");
+
+    function setActiveLink() {
+      let currentSection = null;
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const scrollPosition = window.scrollY;
+
+        // Check if the section is currently in view
+        if (
+          scrollPosition >= sectionTop - 100 &&
+          scrollPosition < sectionTop + sectionHeight
+        ) {
+          currentSection = section.id;
+        }
+      });
+
+      navLinks.forEach((link) => {
+        if (link.getAttribute("href") === `#${currentSection}`) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    // Call the function on scroll
+    window.addEventListener("scroll", setActiveLink);
+
+    // Call the function on page load to ensure correct state
+    setActiveLink();
+  </script>
+
+  <script>
+    const burgerButton = document.getElementById("burger-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const openIcon = document.getElementById("streger");
+    const closeIcon = document.getElementById("kryds");
+    const links = mobileMenu.querySelectorAll("a[data-link]"); // Ensure these are correct links
+
+    // Function to toggle the mobile menu visibility
+    function toggleMenu() {
+      const isMenuOpen = mobileMenu.classList.contains("opacity-100"); // Check if the menu is open
+
+      // Show/hide the mobile menu
+      mobileMenu.classList.toggle("opacity-100", !isMenuOpen); // Open/close the menu
+      mobileMenu.classList.toggle("pointer-events-none", isMenuOpen); // Disable pointer events when menu is closed
+
+      // Toggle the burger icon (open and close)
+      if (isMenuOpen) {
+        // If the menu is open, hide the open icon and show the close icon
+        closeIcon.classList.add("opacity-0", "scale-75");
+        closeIcon.classList.remove("opacity-100", "scale-100");
+
+        openIcon.classList.add("opacity-100", "scale-100");
+        openIcon.classList.remove("opacity-0", "scale-75");
+      } else {
+        // If the menu is closed, show the open icon and hide the close icon
+        closeIcon.classList.add("opacity-100", "scale-100");
+        closeIcon.classList.remove("opacity-0", "scale-75");
+
+        openIcon.classList.add("opacity-0", "scale-75");
+        openIcon.classList.remove("opacity-100", "scale-100");
+      }
+    }
+
+    // Toggle the menu when the burger button is clicked
+    burgerButton.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent the click event from propagating
+      toggleMenu();
+    });
+
+    // Close the mobile menu when clicking anywhere outside the menu or burger button
+    document.addEventListener("click", (e) => {
+      if (!burgerButton.contains(e.target) && !mobileMenu.contains(e.target)) {
+        // Close the menu if it's open
+        if (mobileMenu.classList.contains("opacity-100")) {
+          toggleMenu();
+        }
+      }
+    });
+
+    // Prevent the mobile menu from closing when clicking inside the menu itself
+    mobileMenu.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent click from propagating to the document listener
+    });
+
+    // Close the menu when any link is clicked
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("opacity-100")) {
+          toggleMenu(); // Close the menu when a link is clicked
+        }
+      });
+    });
+
+    // Close the mobile menu if the background itself (outside of the links) is clicked
+    mobileMenu.addEventListener("click", (e) => {
+      // If the background is clicked (not the links), close the menu
+      if (e.target === mobileMenu) {
+        toggleMenu();
+      }
+    });
+  </script>
+
+  <script>
+  let lastScrollY = window.scrollY;
+  const header = document.getElementById("desktop-header");
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // scrolling down
+      header.style.transform = "translateY(-150%)";
+      header.style.transition = "transform 0.3s ease";
+    } else {
+      // scrolling up
+      header.style.transform = "translateY(0)";
+      header.style.transition = "transform 0.3s ease";
+    }
+
+    lastScrollY = currentScrollY;
+  });
+</script>

@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    /* p{
+        @apply text-body;
+    } */
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+ 
+
+
+::-webkit-scrollbar {
+  width: 12px; 
+  background-color: #B44E9E4D;/* Adjust width */
+}
+
+::-webkit-scrollbar-track {
+ background:  #efeae3; /* Track color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #B44E9E4D; /* Thumb color */
+  border-radius: 10px;
+  transition: background-color 1s ease-in-out; /* Smooth, rounded thumb */
+  /* Smooth color transition */
+}
+

@@ -1,0 +1,31 @@
+---
+const { variant = "primary", input } = Astro.props;
+
+// gælder for alle //
+const buttonStyling =
+  "jello-hover transition-all min-w-[100px] py-[4px] duration-300 ease-in-out  border rounded-full font-p-s-d whitespace-nowrap lg:font-p-s-m px-spacebar-ms lg:px-spacebar-ds text-p-m-m lg:text-p-s-d font-body  ";
+
+const variantClasses = {
+  primary:
+    "border-magic-500 border text-magic-500 hover:bg-magic-300",
+  secondary: "border-obsidian-500  text-obsidian-500 hover:bg-magic-300",
+  tertiary: "border-sand-500 text-sand-500 hover:bg-sand-300",
+};
+
+
+
+---
+
+<button
+id=""
+  class="buttonComponent "
+  class:list={[buttonStyling, variantClasses[variant],]}
+  ><slot />
+  <div class="">{input}</div>
+</button>
+
+<style>
+  .jello-hover:hover {
+  animation: rubberBand 0.9s;
+}
+</style>

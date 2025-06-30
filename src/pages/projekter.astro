@@ -1,0 +1,182 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from '../components/Button.astro';
+import Link from '../components/Link.astro';
+import Card from "../components/Card.astro";
+
+
+
+const projects = [
+
+ {
+  year:"2025",
+    header: "Stoisk Ro",
+    text: "Mit afsluttende eksamensprojekt på KEA var udviklingen af Stoisk Ro, en ny hjemmeside til en samtaleterapeut med speciale i stoicisme. Vi havde stort set frie rammer og valgte at samarbejde med en af mine gruppemedlemmers mand, som arbejder som samtaleterapeut.\n\nDet gav os mulighed for at skabe noget fra bunden, baseret på solid research af både virksomhed og målgruppe gennem brugertests, surveys, et dybdegående interview, SWOT-analyse, Business Model Canvas og flere UX-metoder.\n\nVi prioriterede projektstyringen højt. Med Double Diamond-modellen og Gantt-chart kunne vi planlægge effektivt og undgå den klassiske tidspres til sidst i projektet. Det gjorde processen fokuseret, struktureret og behagelig.\n\nResultatet er et projekt, vi er rigtig stolte af, både fordi det er teknisk gennemarbejdet og processen fungerede så godt. I øvrigt var vores censor så imponeret over vores projekt, at hun delte os på sin LinkedIn. Vi fik topkarakter.",
+    bgImg: "/img/stoiskro.webp",
+    url: "https://stoiskro.netlify.app/",
+  },
+  {
+    year:"2024",
+    header: "Book in a Box",
+    text: "På tredje semester fik vi til opgave at udarbejde et unsolicited redesign af en selvvalgt abonnementsbaseret virksomhed. Vi ønskede at arbejde med en mindre og lidt overset virksomhed, og efter lidt research faldt vi over Book in a Box.\n\nKonceptet er abonnement på fantasybøger, hvor abonnenter hver anden måned modtager en boks med en udvalgt bog og forskellige boglige goodies. Det er ejeren selv, der vælger bogen, og fællesskabet omkring udgivelserne lever især på virksomhedens Instagram, hvor læserne deler tanker og læseoplevelser, lidt som en moderne læseklub.\n\nVores mål med redesignet var at gøre fantasyuniverset mere levende og visuelt tilstedeværende på hjemmesiden, samtidig med at vi forbedrede brugeroplevelsen og skabte mere visuel sammenhæng i brugen af komponenter og farver. Vi eksperimenterede os frem til en stil, der føles både magisk og indbydende og som virkelig understøtter virksomhedens identitet.\n\nDet her er et af de projekter, jeg er meget tilfreds med. Vi lagde meget arbejde i det både sammen i designfasen og hver for sig i udviklingen. Jeg havde ansvaret for at kode forsiden og navigationen samt skabe de håndtegnede illustrationer, der er med til at understrege det fantasifulde udtryk. Det var et stærkt samarbejde, og jeg tog rigtig meget læring med mig videre derfra.",
+    bgImg: "/img/bookinabox.webp",
+    url: "https://bookinabox.netlify.app/",
+  },
+ 
+  {
+    year:"2024",
+    header: "Höjskolendk",
+    text: "Höjskolendk er en rejsehøjskole, og i dette projekt arbejdede vi med at redesigne deres hjemmeside med fokus på en forbedret brugeroplevelse og en styrket visuel identitet.\n\n Målet var ikke blot at modernisere designet, men også at udvikle og implementere et gennemarbejdet designsystem.\n\nEn væsentlig del af opgaven bestod i at overføre designsystemet fra Figma til kode, hvilket både styrkede samarbejdet mellem design og udvikling og gav et mere strømlinet workflow.",
+    bgImg: "/img/hojskolendk.webp",
+    url: "https://hojskolendk.netlify.app/",
+  },
+ 
+
+  {
+    year:"2024",
+    header: "#singleusesucks",
+    text: "Plastic Change er en organisation, der arbejder for at reducere mængden af engangsplastik og øge bevidstheden om plastforureningens konsekvenser for miljø og dyreliv. I kampagnen #singleusesucks havde vi til opgave at udvikle en scrollytelling-løsning, der formidlede budskabet på en engagerende måde. \n\nVi arbejdede med animation som et centralt virkemiddel og benyttede biblioteker som Motion One, Animista og Animate.css for at skabe en interaktiv og visuelt fængende oplevelse, der understøttede kampagnens formål.",
+    bgImg: "/img/singleuse-sc.webp",
+    url: "https://singleusesucksbackup.netlify.app/?fbclid=IwZXh0bgNhZW0CMTEAAR1mArOMrp3fPsJjYvVAQX3-n4zHUKU2bpj17u8VNmOlVIKFfIC_Bf1kGZ8_aem__8NBiaM20B69M-arsDehBQ",
+  },
+ 
+
+
+  {
+    year:"2024",
+    header: "Digital Cleanup Day",
+    text: "Digital Cleanup Day er en global begivenhed, der sætter fokus på at rydde op i vores digitale liv for at mindske det energiforbrug og ressourceaftryk, som internettet medfører. I denne caseopgave skulle vi redesigne Digital Cleanup Days hjemmeside og tilpasse den til en dansk kontekst.\n\nFormålet var at opnå praktisk erfaring med infografik og datavisualisering som formidlingsgreb, og samtidig gøre budskabet mere tilgængeligt og visuelt engagerende.",
+    bgImg: "/img/digitalskrald-sc.webp",
+    url: "https://digitalskrald.netlify.app/",
+  },
+ 
+
+  {
+    year:"2024",
+    header: "DFerments.dk",
+    text: "DFerments er en lille lokal virksomhed. Damon, founderen, specialiserer sig i kombucha. Projektet var vores eksamensopgave på andet semester, et samarbejde, vi som gruppe er særligt stolte af.\n\nOpgaven gik ud på at finde en virksomhed og hjælpe dem med at udnytte deres digitale platforme mere effektivt. \n\nVi udviklede SoMe-indhold i form af billeder, videoer og stories, og vi designede og kodede en helt ny hjemmeside til Damon med fokus på at styrke både hans brand og tilstedeværelse online.",
+    bgImg: "/img/dferments-sc.webp",
+    url: "https://dferments.netlify.app/",
+  },
+ 
+
+  {
+    year:"2024",
+    header: "I tråd med verden",
+    text: "ITMV (I Tråd Med Verden) er en dansk tøjbutik, der har fokus på bæredygtighed gennem genanvendelse af kasserede tekstiler.\n\nVirksomheden bidrager aktivt til den grønne omstilling og skaber samtidig arbejdspladser for socialt udsatte kvinder.\n\nI denne case arbejdede vi med design og udvikling af en webfeature til en lille virksomhed. Vi eksperimenterede især med grafiske elementer, der skabte en tydelig rød tråd gennem projektet, og inkluderede også funktionalitet til lydafspilning for at gøre oplevelsen mere engagerende.",
+    bgImg: "/img/itmv-sc.webp",
+    url: "https://itmvgruppe9.netlify.app/",
+  },
+ 
+
+
+  {
+    year:"2024",
+    header: "Karrusel.dk",
+    text: "Karrusel Festival er en dansk musikfestival, der lægger vægt på en intim atmosfære med både etablerede og upcoming kunstnere på programmet.\n\nVores opgave var at udvikle og kode et redesign af festivalens hjemmeside. Målet var at opnå en dybere forståelse for designsystemer samt at oprette og implementere komponenter og variabler, både i Figma og i VSCode.",
+    bgImg: "/img/karrusel-sc.webp",
+    url: "https://karrusel-team9.netlify.app/",
+  },
+ 
+
+  {
+    year:"2024",
+    header: "Vildmad.dk",
+    text: "Vildmad.dk er en dansk organisation, der arbejder for at fremme brugen af vilde, spiselige planter i madlavningen.\n\nI vores projekt skulle vi udvikle en underside målrettet 7. klasse i folkeskolen. Selvom vi havde store ambitioner for sitet, nåede vi ikke helt i mål med alle dele af projektet. Det var samtidig en af de første større cases, vi arbejdede med i andet semester.\n\nHovedfokus var at bygge et datasystem og hente data dynamisk derfra. Vi brugte Astro for første gang, arbejdede med Astro props og dykkede ned i mere avanceret JavaScript. Selvom det visuelle design stadig kan forbedres, gav denne opgave mig en hel del læring og erfaring.",
+    bgImg: "/img/vildmad.webp",
+    url: "https://vildmaddk.netlify.app/",
+  },
+ 
+
+  {
+    year:"2023",
+    header: "Pleasant.dk",
+    text: "Pleasant.dk er en tøjbutik, der tilbyder bæredygtig mode med fokus på tidløse designs.\n\nPleasant var vores første caseopgave på første semester, hvor vi selv skulle tage kontakt til en virksomhed og derefter lave et redesign af deres website. Ud over redesignet skulle vi også producere en større præsentationsvideo samt en kort SoMe-video.\n\nVores færdige site havde både mangler og tekniske fejl, men det var også den første rigtige hjemmeside, vi byggede, og derfor lærte jeg enormt meget undervejs. Indtil da havde vi kun arbejdet med små øvelser. Jeg fik også mine første erfaringer med Premiere Pro, og jeg lærte at researche, producere og redigere indhold til digitale platforme. Det var en opgave, der gav mig et stærkere udgangspunkt for resten af uddannelsen.",
+    bgImg: "/img/pleasant.webp",
+    url: "https://pleasant04.netlify.app/",
+  },
+ 
+
+ 
+ 
+  
+  // Tilføj flere projekter her
+];
+
+
+---
+
+<MainLayout title="Projekter">
+
+<div id="hero" class="h-full py-spacebar-mm lg:py-spacebar-dm grid grid-cols-grid-mobil lg:grid-cols-grid-mobil gap-gap-mobil lg:gap-gap-desktop items-center mx-margin-mobil lg:mx-margin-desktop">
+<h1 class="text-obsidian-500 projekter-h1 text-h1-m lg:text-h1-d font-heading col-start-1 col-span-full ">Projekter</h1>
+
+<p class="hero-p col-start-1 col-span-5 text-obsidian-500 font-body text-p-m  lg:text-p-d "></p>
+</div>
+
+<div class="flex flex-col items-start justify-start mx-margin-mobil lg:mx-margin-desktop">
+
+<div id="projekter-cards" class="flex flex-wrap gap-spacebar-ms lg:gap-spacebar-ds items-start  justify-start ">
+  {projects.map((project) => (
+    <a href={project.url} target="_blank" class="card-link ">
+     <Card 
+  header={project.header} 
+  text={project.text} 
+  bgImg={project.bgImg} 
+  url={project.url} 
+  year={project.year}
+/>
+
+    </a>
+  ))}
+    
+    
+  </div>
+
+</div>
+  
+
+
+
+</MainLayout>
+
+<script>
+      import gsap from "gsap";
+ 
+ import { ScrollTrigger } from "gsap/ScrollTrigger";
+  
+ import { TextPlugin } from "gsap/TextPlugin";
+ gsap.registerPlugin(TextPlugin)
+ 
+ gsap.registerPlugin(ScrollTrigger);
+
+
+
+gsap.to(".hero-p", {
+  duration: 2,
+  text: "Her er et udvalg af de projekter, jeg har arbejdet på under min uddannelse.",
+  ease: "power1.in",
+  scrollTrigger: {
+    trigger: ".hero-p", // The element to watch for in view
+    start: "top 50%",  // When the top of the element hits 80% of the viewport
+    toggleActions: "play none none none", // Play the animation on scroll
+  },
+});
+
+gsap.from("#hero-h1, #projekter-cards", {
+  scrollTrigger: {
+    trigger: "#hero",
+    start: "top 60%", 
+    scrub: false, // Animation will not be tied to scroll progress
+     
+  },
+  opacity: 0,
+  x: 70,
+  
+  duration: 2,
+  ease: "power2.out",
+  stagger: 0.4, // Stagger the animation of each element by 0.1 seconds
+ 
+  
+});
+</script>

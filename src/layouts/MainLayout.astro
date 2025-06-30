@@ -1,0 +1,96 @@
+---
+// Import components and styles
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import '../styles/tailwind.css';
+import 'animate.css';
+
+const { title, description, ogImage, url, canonical } = Astro.props;
+const { links = [] } = Astro.props;
+
+
+
+---
+
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{Astro.props.title}</title>
+     <meta name="description" content={Astro.props.description} />
+<meta property="og:title" content={Astro.props.title} />
+<meta property="og:description" content={Astro.props.description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:image" content={Astro.props.ogImage ?? '/img/default-og-image.webp'} />
+  {canonical && <link rel="canonical" href={canonical} />}
+
+     <!-- poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!-- tilt warp -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tilt+Warp&display=swap" rel="stylesheet">
+
+  </head>
+ <!-- BODY -->
+<body class="bg-sand-500 overflow-x-hidden">
+
+  <!-- Loader -->
+  <div id="loader" class="fixed inset-0 z-50 bg-[#fdfbf7] flex items-center justify-center transition-opacity duration-500">
+    <img src="/svg/favicon.svg" alt="Loading" class="w-24 animate-pulse" />
+  </div>
+
+  <!-- Header -->
+  <header class="fixed w-full top-0 z-[300] opacity-0 pointer-events-none transition-opacity duration-300">
+    <Header />
+  </header>
+
+  <!-- Main -->
+  <main class="opacity-0 pointer-events-none transition-opacity duration-300">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <footer class="opacity-0 pointer-events-none transition-opacity duration-300" id="footer">
+    <Footer />
+  </footer>
+</body>
+
+</html>
+
+<script>
+  import { gsap } from "gsap";
+    
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+    
+    
+    gsap.registerPlugin(ScrollTrigger);
+
+
+
+</script>
+<script>
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    const main = document.querySelector("main");
+    const nav = document.querySelector("header");
+    const footer = document.querySelector("footer");
+
+    loader.classList.add("opacity-0");
+
+    setTimeout(() => {
+      loader.style.display = "none";
+      [main, nav, footer].forEach((el) => {
+        el.classList.remove("opacity-0", "pointer-events-none");
+      });
+    }, 500);
+  });
+</script>
+

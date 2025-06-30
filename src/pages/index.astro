@@ -1,0 +1,288 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Button from "../components/Button.astro";
+import Link from "../components/Link.astro";
+import Card from "../components/Card.astro";
+const projects = [
+   {
+  year:"2025",
+    header: "Stoisk Ro",
+    text: "Mit afsluttende eksamensprojekt på KEA var udviklingen af Stoisk Ro, en ny hjemmeside til en samtaleterapeut med speciale i stoicisme. Vi havde stort set frie rammer og valgte at samarbejde med en af mine gruppemedlemmers mand, som arbejder som samtaleterapeut.\n\nDet gav os mulighed for at skabe noget fra bunden, baseret på solid research af både virksomhed og målgruppe gennem brugertests, surveys, et dybdegående interview, SWOT-analyse, Business Model Canvas og flere UX-metoder.\n\nVi prioriterede projektstyringen højt. Med Double Diamond-modellen og Gantt-chart kunne vi planlægge effektivt og undgå den klassiske tidspres til sidst i projektet. Det gjorde processen fokuseret, struktureret og behagelig.\n\nResultatet er et projekt, vi er rigtig stolte af, både fordi det er teknisk gennemarbejdet og processen fungerede så godt. I øvrigt var vores censor så imponeret over vores projekt, at hun delte os på sin LinkedIn. Vi fik topkarakter.",
+    bgImg: "/img/stoiskro.webp",
+    url: "https://stoiskro.netlify.app/",
+  },
+  {
+    year:"2024",
+    header: "Book in a Box",
+    text: "På tredje semester fik vi til opgave at udarbejde et unsolicited redesign af en selvvalgt abonnementsbaseret virksomhed. Vi ønskede at arbejde med en mindre og lidt overset virksomhed, og efter lidt research faldt vi over Book in a Box.\n\nKonceptet er abonnement på fantasybøger, hvor abonnenter hver anden måned modtager en boks med en udvalgt bog og forskellige boglige goodies. Det er ejeren selv, der vælger bogen, og fællesskabet omkring udgivelserne lever især på virksomhedens Instagram, hvor læserne deler tanker og læseoplevelser, lidt som en moderne læseklub.\n\nVores mål med redesignet var at gøre fantasyuniverset mere levende og visuelt tilstedeværende på hjemmesiden, samtidig med at vi forbedrede brugeroplevelsen og skabte mere visuel sammenhæng i brugen af komponenter og farver. Vi eksperimenterede os frem til en stil, der føles både magisk og indbydende og som virkelig understøtter virksomhedens identitet.\n\nDet her er et af de projekter, jeg er meget tilfreds med. Vi lagde meget arbejde i det både sammen i designfasen og hver for sig i udviklingen. Jeg havde ansvaret for at kode forsiden og navigationen samt skabe de håndtegnede illustrationer, der er med til at understrege det fantasifulde udtryk. Det var et stærkt samarbejde, og jeg tog rigtig meget læring med mig videre derfra.",
+    bgImg: "/img/bookinabox.webp",
+    url: "https://bookinabox.netlify.app/",
+  },
+ 
+  {
+    year:"2024",
+    header: "Höjskolendk",
+    text: "Höjskolendk er en rejsehøjskole, og i dette projekt arbejdede vi med at redesigne deres hjemmeside med fokus på en forbedret brugeroplevelse og en styrket visuel identitet.\n\n Målet var ikke blot at modernisere designet, men også at udvikle og implementere et gennemarbejdet designsystem.\n\nEn væsentlig del af opgaven bestod i at overføre designsystemet fra Figma til kode, hvilket både styrkede samarbejdet mellem design og udvikling og gav et mere strømlinet workflow.",
+    bgImg: "/img/hojskolendk.webp",
+    url: "https://hojskolendk.netlify.app/",
+  },
+];
+---
+
+<MainLayout title="Emily's Portfolio">
+   
+  <section id="hero" class="h-full pt-spacebar-mm lg:pt-spacebar-dm">
+
+    <div id="hero-m" class="lg:hidden">
+<div class="mx-margin-mobil grid grid-cols-grid-mobil gap-gap-mobil">
+  <h1 id="hero-h1" class="font-heading text-h1-m text-obsidian-500 col-start-1 col-span-10 fade-left">Emily Fang Xiong Nielsen</h1>
+<p class="text-magic-500 font-body text-display-m -rotate-1 col-start-1 col-span-9 -mt-2 animate-pulse display">Webdesign Portfolio</p>
+<p id="hero-p" class="text-obsidian-500 font-body text-p-m col-start-1 col-end-7 pt-spacebar-ms"></p>
+<div class="flex flex-col gap-spacebar-ms col-start-8 col-span-full pt-spacebar-ms">
+ <a href="#cv"> <Button  variant="primary" input="Download CV"></Button></a>
+  <a href="#projekter"><Button  variant="secondary" input="Se projekter"></Button></a>
+</div>
+</div>
+<div class="flex flex-col justify-center items-center py-spacebar-mm"><img id="scroll-arrow" class="w-[25px]" src="/svg/arrow.svg" alt="Pil ned"></div>
+</div>
+
+ <div id="hero-d" class="hidden lg:block ">
+  <div class="mx-margin-desktop grid-cols-grid-desktop grid gap-gap-desktop">
+<h1 id="hero-h1" class="font-heading text-h1-d text-obsidian-500 col-start-1 col-span-8 fade-left">Emily Fang Xiong Nielsen</h1>
+<p class="font-body text-display-d text-magic-500 col-start-1 col-span-7 -rotate-1 -mt-4  display">Webdesign Portfolio</p>
+<div class="flex flex-row items-center justify-start gap-spacebar-ms col-start-1 col-span-5 py-spacebar-ds">
+  <div id="hero-btn-1"><a id="" href="#cv" class="hover:rotate-1 ease-in-out duration-300 transition-all"> <Button  variant="primary" input="Download CV"></Button></a></div> 
+<div id="hero-btn-2"> <a href="#projekter" class="hover:rotate-1 ease-in-out duration-300 transition-all"><Button  variant="secondary" input="Se projekter"></Button></a></div> 
+</div>
+<p id="hero-p" class="col-start-9 col-span-full text-p-d text-obsidian-500 font-body"></p>
+</div>
+<div class="flex flex-col justify-center items-center py-spacebar-dm"><img id="scroll-arrow" class="w-[50px]" src="/svg/arrow.svg" alt="Pil ned"></div>
+</div>
+
+  </section>
+
+  <section id="om" class="pb-spacebar-mm lg:pb-spacebar-dm mx-margin-mobil lg:mx-margin-desktop">
+    <div class="flex flex-col justify-start items-start gap-spacebar-ms lg:gap-spacebar-ds">
+      <h2 id="om-h2" class="font-heading text-h2-m lg:text-h2-d text-obsidian-500 pb-spacebar-ms lg:pb-spacebar-dm">Bag skærmen</h2>
+      <div class="flex flex-col items-start gap-spacebar-ms lg:grid grid-cols-grid-desktop lg:gap-gap-desktop">
+        <div class="flex flex-col justify-between h-full items-start col-start-1 col-span-5">
+          <p id="om-p" class=" text-obsidian-500 font-body text-p-ml-m lg:text-p-ml-d">Hej! Mit navn er Emily. Jeg er 20 år gammel og er nyuddannet multimediedesigner dimmiteret fra Københavns Erhvervsakademi (KEA). <br> <br>
+
+Jeg brænder for at skabe æstetiske og brugervenlige digitale løsninger. Under min uddannelse har jeg arbejdet med alt fra UI/UX-design til webudvikling. </p>
+<a id="om-btn" class="hidden lg:block" href="#footer"><Button input="Kontakt mig" variant="primary"></Button>   </a>
+</div>
+
+<img id="om-img" class="rounded-sm col-start-9 col-span-full" src="/img/portrait.webp" alt="Emily Nielsen"> 
+
+</div>
+<a id="om-btn-m" class="lg:hidden" href="#footer"><Button input="Kontakt mig" variant="primary"></Button>   </a>
+</div>
+ </section>
+
+
+<section id="projekter" class="pb-spacebar-mm lg:pb-spacebar-dm mx-margin-mobil lg:mx-margin-desktop">
+<div class="flex flex-col items-start justify-start"><h2 id="projekter-h2" class="font-heading text-h2-m lg:text-h2-d text-obsidian-500 pb-spacebar-ms lg:pb-spacebar-dm">Projekter</h2></div>
+<div class="flex flex-col justify-start items-start  gap-spacebar-ms  lg:gap-spacebar-ds">
+
+
+
+<div id="projekter-row" class="flex flex-col lg:flex-row gap-spacebar-ms lg:gap-spacebar-ds ">
+  {projects.map((project) => (
+    <a href={project.url} target="_blank" class="">
+      <Card 
+  header={project.header} 
+  text={project.text} 
+  bgImg={project.bgImg} 
+  url={project.url} 
+  year={project.year}
+/>
+
+    </a>
+  ))}
+</div>
+
+
+
+
+<a id="projekter-btn" href="/projekter"><Button variant="primary"  input="Se alle projekter"></Button></a>
+
+</div>
+
+
+
+</section>
+
+
+<section id="cv" class="mx-margin-mobil lg:mx-margin-desktop grid grid-cols-grid-mobil lg:grid-cols-grid-desktop gap-gap-mobil lg:gap-gap-desktop">
+
+<h2 id="cv-h2" class="text-obsidian-500 font-heading text-h2-m lg:text-h2-d col-start-1 col-span-full lg:col-span-8 pb-spacebar-ms lg:pb-spacebar-dm">Curriculum Vitare</h2>
+<div id="cv-imgs" class="col-start-1 col-span-full flex flex-col lg:flex-row gap-spacebar-mm lg:gap-spacebar-dm items-start">
+<img class=" lg:block hidden" src="/svg/uddannelse-d.svg" alt="CV udkast">
+<img class=" lg:hidden" src="/svg/uddannelse-m-d.svg" alt="CV udkast">
+<img class="hidden lg:block " src="/svg/kompetencer-d-d.svg" alt="Kompetencer">
+<img class=" lg:hidden " src="/svg/kompetencer-m-d.svg" alt="Kompetencer">
+
+</div>
+<div class="col-start-1 col-span-full flex flex-col items-start pt-spacebar-ms lg:pt-spacebar-ds justify-start gap-spacebar-ms">
+ <a id="cv-btn-1" class="col-start-1 col-span-full" href="/pdf/CV_Emily_Nielsen_DA.pdf"
+      download="CV_Emily_Nielsen_DA.pdf"
+        ><Button variant="primary"  input="Download CV (da)" /></a
+      >
+
+
+      <a id="cv-btn-2" class="" href="/pdf/CV_Emily_Nielsen_EN.pdf"
+      download="CV_Emily_Nielsen_EN.pdf"
+        ><Button variant="secondary"  input="Download CV (en)" /></a
+      >
+</div>
+</section>
+   
+
+
+</MainLayout>
+
+<script>
+  window.addEventListener("load", () => {
+  // your gsap.from(... { scrollTrigger }) code here
+});
+
+  import gsap from "gsap";
+ 
+
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { TextPlugin } from "gsap/TextPlugin";
+
+// Register plugins
+gsap.registerPlugin(TextPlugin, ScrollTrigger);
+ 
+gsap.to("#scroll-arrow",  { y: -10,  delay: 0.8, ease: "power1.out", duration: 0.6, repeat: -1, yoyo: true,})
+
+ //replaces yourElement's text with "This is the new text" over the course of 2 seconds
+gsap.to("#hero-p", {
+  duration: 2,
+  delay: 1,
+  text: "Jeg er passioneret omkring at skabe æstetiske digitale løsninger med fokus på brugeren",
+  ease: "power1.in",
+});
+
+gsap.from(".fade-left", {
+  duration: 3,      // animation lasts 1 second
+  opacity: 0,       // start fully transparent
+  x: -100,          // start 100 pixels left from original position
+  ease: "power2.out" // easing for smooth effect
+});
+
+gsap.from(".fade-right", {
+  duration: 3,      // animation lasts 1 second
+  opacity: 0,       // start fully transparent
+  x: -100,          // start 100 pixels left from original position
+  ease: "power2.out" // easing for smooth effect
+});
+
+
+
+gsap.from(".display", {
+  opacity: 0,
+  x: 100, // Comes in from the right
+  
+  stagger: 0.1, // Delay between clouds
+  ease: "power1.out",
+  duration: 3,
+  onComplete: () => {
+    // Start pulsing after entrance animation is complete
+    gsap.to(".display", {
+      scale: 1.01, // Slightly enlarge
+      duration: 1, // Time for each pulse
+      ease: "power1.inOut",
+      yoyo: true, // Reverse back to the original size
+      repeat: -1 // Infinite pulsing
+    });
+  }
+
+  
+});
+
+
+
+gsap.from("#hero-btn-1", {
+  duration: 2,      // animation lasts 1 second
+  opacity: 0,       // start fully transparent
+  y: -100,          // start 100 pixels left from original position
+ 
+});
+
+gsap.from("#hero-btn-2", {
+  duration: 2,      // animation lasts 1 second
+  opacity: 0,       // start fully transparent
+  y: 100,          // start 100 pixels left from original position
+ 
+});
+
+
+gsap.from("#scroll-arrow", {
+  duration: 4,
+  delay:5,      // animation lasts 1 second
+  opacity: 0,       // start fully transparent
+           // start 100 pixels left from original position
+ 
+});
+
+
+gsap.from("#om-h2, #om-p, #om-img,  #om-btn,  #om-btn-m", {
+  scrollTrigger: {
+    trigger: "#om",
+    start: "top 60%", 
+    scrub: false, // Animation will not be tied to scroll progress
+     
+  },
+  opacity: 0,
+  x:70,
+  
+  duration: 2,
+  ease: "power2.out",
+  stagger: 0.4, // Stagger the animation of each element by 0.1 seconds
+ 
+  
+});
+
+
+
+
+gsap.from("#projekter-h2, #projekter-row, #projekter-btn", {
+  scrollTrigger: {
+    trigger: "#projekter",
+    start: "top 60%", 
+    scrub: false, // Animation will not be tied to scroll progress
+     
+  },
+  opacity: 0,
+  x:-70,
+  
+  duration: 2,
+  ease: "power2.out",
+  stagger: 0.4, // Stagger the animation of each element by 0.1 seconds
+ 
+  
+});
+
+
+
+
+gsap.from("#cv-h2, #cv-imgs, #cv-btn-1, #cv-btn-2", {
+  scrollTrigger: {
+    trigger: "#cv",
+    start: "top 60%", 
+    scrub: false, // Animation will not be tied to scroll progress
+     
+  },
+  opacity: 0,
+  x: 70,
+  
+  duration: 2,
+  ease: "power2.out",
+  stagger: 0.4, // Stagger the animation of each element by 0.1 seconds
+ 
+  
+});
+
+</script>
